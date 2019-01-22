@@ -1,0 +1,24 @@
+---
+micronaut:
+    application:
+        name: demand-service
+
+---
+hibernate:
+  hbm2ddl:
+    auto: update
+  cache:
+    queries: false
+    use_second_level_cache: true
+    use_query_cache: false
+    # region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+dataSource:
+  url: jdbc:postgresql://localhost:5432/gwaed-dev
+  pooled: true
+  jmxExport: true
+  driverClassName: org.postgresql.Driver
+  username: postgres
+  password: zippy2282
+  
+  
+---
