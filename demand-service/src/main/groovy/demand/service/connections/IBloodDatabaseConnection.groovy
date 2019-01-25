@@ -1,7 +1,7 @@
 /**
  * 
  */
-package demand.service;
+package demand.service.connections;
 
 import demand.service.domain.calculation.Demand
 import demand.service.products.CmvStatus
@@ -29,7 +29,7 @@ public interface IBloodDatabaseConnection
 	 * @param cmvStatus
 	 * @return
 	 */
-	List<Double> getInventoryStockByDateAndPhysiology  (Date currentDate, Product product, RhFactor rhFactor,
+	double getInventoryStockByDateAndPhysiology  (Date currentDate, Product product, RhFactor rhFactor,
 		CmvStatus cmvStatus);
 
 }

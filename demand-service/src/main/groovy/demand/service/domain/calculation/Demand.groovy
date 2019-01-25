@@ -17,4 +17,5 @@ public class Demand
 	static constraints = {
 		cmvStatus nullable : true
 	}
+
 }

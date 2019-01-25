@@ -3,7 +3,9 @@ package demand.service
 import org.quartz.Scheduler
 import org.quartz.impl.StdSchedulerFactory
 
+import demand.service.gwaed.service.DemandService
 import groovy.transform.CompileStatic
+import io.micronaut.context.BeanContext
 import io.micronaut.runtime.Micronaut
 
 
@@ -21,5 +23,8 @@ class Application {
 		//scheduler.shutdown();
 		
         Micronaut.run(Application)
+		
+		DemandService demandService = new DemandService ()
+		demandService.calculateDemand(new Date())
     }
 }

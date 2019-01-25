@@ -15,7 +15,7 @@ class HelloController {
     @Produces(MediaType.TEXT_PLAIN)
     @Transactional
     public String index() {
-
+		
         Test test = new Test(name:"Pete")
         test.save(flush:true)
 

@@ -6,7 +6,7 @@ import org.quartz.JobExecutionContext
 import org.quartz.JobExecutionException
 import org.quartz.PersistJobDataAfterExecution
 
-import demand.service.IBloodDatabaseConnection
+import demand.service.connections.IBloodDatabaseConnection
 import demand.service.products.PhysiologyVisitor
 
 @PersistJobDataAfterExecution
