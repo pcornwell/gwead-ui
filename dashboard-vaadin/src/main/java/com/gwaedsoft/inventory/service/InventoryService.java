@@ -45,9 +45,13 @@ public class InventoryService
 		return inventory;
 	}
 	
+	public void delete (Inventory inventory)
+	{
+		inventoryList.remove(inventory);
+	}
+	
 	public List<Inventory> getAllInventories ()
 	{
-		
 		return inventoryList;
 	}
 	

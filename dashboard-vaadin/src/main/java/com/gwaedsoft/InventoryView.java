@@ -38,6 +38,7 @@ public class InventoryView extends VerticalLayout
     	GridCrud<Inventory> crud = new GridCrud<>(Inventory.class);
     	crud.setFindAllOperation(() -> inventoryService.getAllInventories());
     	crud.setAddOperation(inventoryService::add);
+    	crud.setDeleteOperation(inventoryService::delete);
     	crud.getCrudFormFactory().setUseBeanValidation(true);
     	
     	crud.getGrid().setColumns("name", "description", "county", "city");
