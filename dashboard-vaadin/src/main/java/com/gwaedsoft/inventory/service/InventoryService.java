@@ -26,13 +26,13 @@ public class InventoryService
 	
 	private InventoryService ()
 	{
-		/* address */
-		Address mockAddress = new Address ("3", "Waterview Court", null, null,
-				"Durham", "Durham County", "USA", "27703");
 		
-		Inventory durham = new Inventory ("Durham", "A local RAL collection point");
-		Inventory raleigh = new Inventory ("Raleigh", "A local DUR collection point");
-		Inventory chapelHill = new Inventory ("Chapel Hill", "A local CH collection point");	
+		Inventory durham = new Inventory ("Durham", "A local RAL collection point", "3", "Waterview Court", null, null,
+				"Durham", "Durham County", "USA", "27703");
+		Inventory raleigh = new Inventory ("Raleigh", "A local DUR collection point", "3", "Waterview Court", null, null,
+				"Raleigh", "Wake County", "USA", "27703");
+		Inventory chapelHill = new Inventory ("Chapel Hill", "A local CH collection point", "3", "Waterview Court", null, null,
+				"Chapel Hill", "Orange County", "USA", "27703");	
 	
 		inventoryList.add(durham);
 		inventoryList.add(raleigh);
