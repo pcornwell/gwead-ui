@@ -16,7 +16,7 @@ class HelloController {
     @Transactional
     public String index() {
 		
-        Test test = new Test(name:"Pete")
+        Test test = new Test(name:"Peter")
         test.save(flush:true)
 
         return "Hello World test id is ${test.id}";
