@@ -214,6 +214,15 @@ public class Inventory
 		this.postCode = postCode;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.getName() + ", " + this.getCity();
+	}
+
 
 	
 }

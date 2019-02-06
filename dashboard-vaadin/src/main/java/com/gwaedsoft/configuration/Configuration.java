@@ -5,12 +5,17 @@ package com.gwaedsoft.configuration;
 
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+import com.gwaedsoft.inventory.Inventory;
 /**
  * @author Pete
  *
@@ -67,7 +72,7 @@ public class Configuration
 	private BigDecimal plasmaWholeBloodCollectionLoss = new BigDecimal(0.0);	
 	
 	@DecimalMin ("0.00")
-	private BigDecimal pooledPlateletholeBloodCollectionLoss = new BigDecimal(0.0);	
+	private BigDecimal pooledPlateletWholeBloodCollectionLoss = new BigDecimal(0.0);	
 	
 	@NotNull 	
 	@DecimalMin ("0.00")
@@ -77,6 +82,66 @@ public class Configuration
 	@DecimalMin ("0.00")
 	@DecimalMax ("100.00")
 	private BigDecimal apheresisCollectionPercentage = new BigDecimal(0.0);
+	
+	@NotNull
+	private Set<Inventory> inventories = new HashSet<Inventory>();
+
+	
+	
+	
+	/**
+	 * 
+	 */
+	public Configuration() {
+		super();
+	}
+
+	/**
+	 * @param name
+	 * @param rbcInventoryDays
+	 * @param plasmaInventoryDays
+	 * @param sdpInventoryDays
+	 * @param reportingHour
+	 * @param periodicityInMinutes
+	 * @param usePooledPlatelets
+	 * @param wholeBloodCollectionPercentage
+	 * @param wholeBloodCollectionLoss
+	 * @param apheresisCollectionLoss
+	 * @param rbcWholeBloodManufacturingLoss
+	 * @param plasmaWholeBloodCollectionLoss
+	 * @param pooledPlateletWholeBloodCollectionLoss
+	 * @param pooledPlateletCollectionPercentage
+	 * @param apheresisCollectionPercentage
+	 */
+	public Configuration(@NotNull String name, @NotNull @Min(1) int rbcInventoryDays,
+			@NotNull @Min(1) int plasmaInventoryDays, @NotNull @Min(1) int sdpInventoryDays,
+			@NotNull @Min(1) @Max(23) int reportingHour, @NotNull @Min(1) @Max(60) int periodicityInMinutes,
+			@NotNull boolean usePooledPlatelets,
+			@NotNull @DecimalMin("0.00") @DecimalMax("100.00") BigDecimal wholeBloodCollectionPercentage,
+			@NotNull @DecimalMin("0.00") BigDecimal wholeBloodCollectionLoss,
+			@NotNull @DecimalMin("0.00") BigDecimal apheresisCollectionLoss,
+			@NotNull @DecimalMin("0.00") BigDecimal rbcWholeBloodManufacturingLoss,
+			@NotNull @DecimalMin("0.00") BigDecimal plasmaWholeBloodCollectionLoss,
+			@DecimalMin("0.00") BigDecimal pooledPlateletholeBloodCollectionLoss,
+			@NotNull @DecimalMin("0.00") BigDecimal pooledPlateletCollectionPercentage,
+			@NotNull @DecimalMin("0.00") @DecimalMax("100.00") BigDecimal apheresisCollectionPercentage) {
+		super();
+		this.name = name;
+		this.rbcInventoryDays = rbcInventoryDays;
+		this.plasmaInventoryDays = plasmaInventoryDays;
+		this.sdpInventoryDays = sdpInventoryDays;
+		this.reportingHour = reportingHour;
+		this.periodicityInMinutes = periodicityInMinutes;
+		this.usePooledPlatelets = usePooledPlatelets;
+		this.wholeBloodCollectionPercentage = wholeBloodCollectionPercentage;
+		this.wholeBloodCollectionLoss = wholeBloodCollectionLoss;
+		this.apheresisCollectionLoss = apheresisCollectionLoss;
+		this.rbcWholeBloodManufacturingLoss = rbcWholeBloodManufacturingLoss;
+		this.plasmaWholeBloodCollectionLoss = plasmaWholeBloodCollectionLoss;
+		this.pooledPlateletWholeBloodCollectionLoss = pooledPlateletholeBloodCollectionLoss;
+		this.pooledPlateletCollectionPercentage = pooledPlateletCollectionPercentage;
+		this.apheresisCollectionPercentage = apheresisCollectionPercentage;
+	}
 
 	/**
 	 * @return the name
@@ -233,17 +298,17 @@ public class Configuration
 	}
 
 	/**
-	 * @return the pooledPlateletholeBloodCollectionLoss
+	 * @return the pooledPlateletWholeBloodCollectionLoss
 	 */
-	public BigDecimal getPooledPlateletholeBloodCollectionLoss() {
-		return pooledPlateletholeBloodCollectionLoss;
+	public BigDecimal getPooledPlateletWholeBloodCollectionLoss() {
+		return pooledPlateletWholeBloodCollectionLoss;
 	}
 
 	/**
-	 * @param pooledPlateletholeBloodCollectionLoss the pooledPlateletholeBloodCollectionLoss to set
+	 * @param pooledPlateletWholeBloodCollectionLoss the pooledPlateletWholeBloodCollectionLoss to set
 	 */
-	public void setPooledPlateletholeBloodCollectionLoss(BigDecimal pooledPlateletholeBloodCollectionLoss) {
-		this.pooledPlateletholeBloodCollectionLoss = pooledPlateletholeBloodCollectionLoss;
+	public void setPooledPlateletWholeBloodCollectionLoss(BigDecimal pooledPlateletholeBloodCollectionLoss) {
+		this.pooledPlateletWholeBloodCollectionLoss = pooledPlateletholeBloodCollectionLoss;
 	}
 
 	/**
@@ -286,6 +351,20 @@ public class Configuration
 	 */
 	public void setApheresisCollectionPercentage(BigDecimal apheresisCollectionPercentage) {
 		this.apheresisCollectionPercentage = apheresisCollectionPercentage;
+	}
+
+	/**
+	 * @return the inventories
+	 */
+	public Set<Inventory> getInventories() {
+		return inventories;
+	}
+
+	/**
+	 * @param inventories the inventories to set
+	 */
+	public void setInventories(Set<Inventory> inventories) {
+		this.inventories = inventories;
 	}
 	
 	
