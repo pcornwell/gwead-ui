@@ -7,13 +7,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gwaedsoft.common.IService;
 import com.gwaedsoft.configuration.Configuration;
 
 /**
  * @author Pete
  *
  */
-public class ConfigurationService 
+public class ConfigurationService implements IService<Configuration>
 {
 	private List<Configuration> configurationList = new ArrayList<Configuration>();
 	private static ConfigurationService configurationService = new ConfigurationService();
@@ -30,7 +31,7 @@ public class ConfigurationService
 		this.configurationList.add(configuration);
 	}
 	
-	public List<Configuration> getAllConfigurations ()
+	public List<Configuration> findAll ()
 	{
 		return this.configurationList;
 	}

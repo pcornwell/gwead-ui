@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
  * @author Pete
  *
  */
-public class Inventory 
+public class Procedure 
 {
 	@NotNull
 	private String name;
@@ -42,7 +42,7 @@ public class Inventory
 	/**
 	 * 
 	 */
-	public Inventory() {
+	public Procedure() {
 		super();
 	}
 
@@ -58,7 +58,7 @@ public class Inventory
 	 * @param country
 	 * @param postCode
 	 */
-	public Inventory(@NotNull String name, @NotNull String description, @NotNull String number, @NotNull String street1,
+	public Procedure(@NotNull String name, @NotNull String description, @NotNull String number, @NotNull String street1,
 			String street2, String street3, @NotNull String city, @NotNull String county, @NotNull String country,
 			@NotNull String postCode) {
 		super();

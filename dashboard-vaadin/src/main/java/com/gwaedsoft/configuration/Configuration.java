@@ -15,7 +15,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import com.gwaedsoft.inventory.Inventory;
+import com.gwaedsoft.inventory.Procedure;
 /**
  * @author Pete
  *
@@ -84,7 +84,7 @@ public class Configuration
 	private BigDecimal apheresisCollectionPercentage = new BigDecimal(0.0);
 	
 	@NotNull
-	private Set<Inventory> inventories = new HashSet<Inventory>();
+	private Set<Procedure> inventories = new HashSet<Procedure>();
 
 	
 	
@@ -356,14 +356,14 @@ public class Configuration
 	/**
 	 * @return the inventories
 	 */
-	public Set<Inventory> getInventories() {
+	public Set<Procedure> getInventories() {
 		return inventories;
 	}
 
 	/**
 	 * @param inventories the inventories to set
 	 */
-	public void setInventories(Set<Inventory> inventories) {
+	public void setInventories(Set<Procedure> inventories) {
 		this.inventories = inventories;
 	}
 	

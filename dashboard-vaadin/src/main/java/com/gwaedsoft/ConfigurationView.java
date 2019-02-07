@@ -34,7 +34,7 @@ public class ConfigurationView extends VerticalLayout
 		setSizeFull();
     	
     	GridCrud<Configuration> crud = new GridCrud<>(Configuration.class);
-    	crud.setFindAllOperation(() -> configurationService.getAllConfigurations());
+    	crud.setFindAllOperation(() -> configurationService.findAll());
     	crud.setAddOperation(configurationService::add);
     	crud.setDeleteOperation(configurationService::delete);
     	crud.getCrudFormFactory().setUseBeanValidation(true);
@@ -48,7 +48,7 @@ public class ConfigurationView extends VerticalLayout
     	DefaultCrudFormFactory<Configuration> formFactory = new DefaultCrudFormFactory<Configuration>(Configuration.class);
     	crud.setCrudFormFactory(formFactory);
     	
-        crud.getCrudFormFactory().setFieldProvider("inventories", new CheckBoxGroupProvider<>(inventoryService.getAllInventories()));
+        crud.getCrudFormFactory().setFieldProvider("inventories", new CheckBoxGroupProvider<>(inventoryService.findAll()));
     	
     	/* add operations */
     	formFactory.setButtonCaption(CrudOperation.ADD, "Add new configuration");

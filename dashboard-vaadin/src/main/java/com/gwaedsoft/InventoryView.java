@@ -4,7 +4,7 @@ import org.vaadin.crudui.crud.CrudOperation;
 import org.vaadin.crudui.crud.impl.GridCrud;
 import org.vaadin.crudui.form.impl.form.factory.DefaultCrudFormFactory;
 
-import com.gwaedsoft.inventory.Inventory;
+import com.gwaedsoft.inventory.Procedure;
 import com.gwaedsoft.inventory.service.InventoryService;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -28,15 +28,15 @@ public class InventoryView extends VerticalLayout
 	
 	private InventoryService inventoryService = InventoryService.getInstance();
 	
-	private Grid<Inventory> inventoryGrid = new Grid<>();
+	private Grid<Procedure> inventoryGrid = new Grid<>();
 	
     public InventoryView() 
     {
     
     	setSizeFull();
     	
-    	GridCrud<Inventory> crud = new GridCrud<>(Inventory.class);
-    	crud.setFindAllOperation(() -> inventoryService.getAllInventories());
+    	GridCrud<Procedure> crud = new GridCrud<>(Procedure.class);
+    	crud.setFindAllOperation(() -> inventoryService.findAll());
     	crud.setAddOperation(inventoryService::add);
     	crud.setDeleteOperation(inventoryService::delete);
     	crud.getCrudFormFactory().setUseBeanValidation(true);
@@ -47,7 +47,7 @@ public class InventoryView extends VerticalLayout
     	crud.setRowCountCaption("%d Inventories found");
     	
     	/* set the form factory */
-    	DefaultCrudFormFactory<Inventory> formFactory = new DefaultCrudFormFactory<Inventory>(Inventory.class);
+    	DefaultCrudFormFactory<Procedure> formFactory = new DefaultCrudFormFactory<Procedure>(Procedure.class);
     	crud.setCrudFormFactory(formFactory);
     	
     	/* add operations */
