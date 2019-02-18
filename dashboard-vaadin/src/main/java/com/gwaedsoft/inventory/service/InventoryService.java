@@ -7,16 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.gwaedsoft.common.IService;
-import com.gwaedsoft.inventory.Procedure;
+import com.gwaedsoft.inventory.Inventory;
 
 /**
  * @author Pete
  *
  */
-public class InventoryService implements IService<Procedure>
+public class InventoryService implements IService<Inventory>
 {
 
-	private static List<Procedure> inventoryList = new ArrayList<Procedure>();
+	private static List<Inventory> inventoryList = new ArrayList<Inventory>();
 	private static InventoryService inventoryService = new InventoryService();
 	
 	public static InventoryService getInstance ()
@@ -27,11 +27,11 @@ public class InventoryService implements IService<Procedure>
 	private InventoryService ()
 	{
 		
-		Procedure durham = new Procedure ("Durham", "A local RAL collection point", "3", "Waterview Court", null, null,
+		Inventory durham = new Inventory ("Durham", "A local RAL collection point", "3", "Waterview Court", null, null,
 				"Durham", "Durham County", "USA", "27703");
-		Procedure raleigh = new Procedure ("Raleigh", "A local DUR collection point", "3", "Waterview Court", null, null,
+		Inventory raleigh = new Inventory ("Raleigh", "A local DUR collection point", "3", "Waterview Court", null, null,
 				"Raleigh", "Wake County", "USA", "27703");
-		Procedure chapelHill = new Procedure ("Chapel Hill", "A local CH collection point", "3", "Waterview Court", null, null,
+		Inventory chapelHill = new Inventory ("Chapel Hill", "A local CH collection point", "3", "Waterview Court", null, null,
 				"Chapel Hill", "Orange County", "USA", "27703");	
 	
 		inventoryList.add(durham);
@@ -39,18 +39,18 @@ public class InventoryService implements IService<Procedure>
 		inventoryList.add(chapelHill);
 	}
 	
-	public Procedure add (Procedure inventory)
+	public Inventory add (Inventory inventory)
 	{
 		inventoryList.add(inventory);
 		return inventory;
 	}
 	
-	public void delete (Procedure inventory)
+	public void delete (Inventory inventory)
 	{
 		inventoryList.remove(inventory);
 	}
 	
-	public List<Procedure> findAll ()
+	public List<Inventory> findAll ()
 	{
 		return inventoryList;
 	}

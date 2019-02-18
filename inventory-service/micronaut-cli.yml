@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: inventory.service
+---
+testFramework: spock
+sourceLanguage: groovy
